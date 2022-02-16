@@ -1,0 +1,93 @@
+$black: #2D292A;
+$rubber-color: #EFA2A2;
+$metal-color: #C4D5E0;
+$pencil-top-color: #FAEEE0;
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: 'Quicksand', sans-serif;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.infinity-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.infinity-container {
+  width: 85vh;
+  height: 85vh;
+  border-radius: 50%;
+  margin-top: 8vh;
+  animation: draw 5s linear infinite;
+  transform-origin: center;
+  position: relative;
+  .trace {
+    width: 95%;
+    height: 95%;
+    transform: rotate(-45deg);
+    border: 2vh solid $black;
+    border-radius: 50%;
+    border-right: 2vh solid transparent;
+    border-bottom: 2vh solid transparent;
+  }
+  .pencil {
+    width: 17%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 41%;
+    .rubber {
+      background-color: $rubber-color;
+      height: 10%;
+      border-radius: 20% 20% 0 0;
+      margin-top: -5px;
+    }
+    .metal {
+      background-color: $metal-color;
+      height: 12%;
+    }
+    .crayon {
+      display: flex;
+      height: 55%;
+      .crayon-left {
+        width: 33%;
+        background-color: #FFD87A;
+      }
+      .crayon-center {
+        width: 33%;
+        background-color: #FDCC66;
+      }
+      .crayon-right {
+        width: 33%;
+        background-color: #F7C456;
+      }
+    }
+    .pencil-top {
+      height: 15%;
+      clip-path: polygon(0 0, 30% 100%, 70% 100%, 100% 0);
+      background-color: $pencil-top-color;
+    }
+    .pencil-tip {
+      background-color: $black;
+      height: 8%;
+      clip-path: polygon(30% 0, 50% 100%, 70% 0);
+    }
+  }
+}
+@keyframes draw {
+  0% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
